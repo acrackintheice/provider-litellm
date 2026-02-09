@@ -3,4 +3,6 @@ kind: Provider
 metadata:
   name: provider-litellm
 spec:
-  package: xpkg.crossplane.io/acrackintheice/provider-litellm:v0.1.0
+  package: xpkg.upbound.io/questplane/demo-repository:v0.0.1
+  packagePullSecrets:
+    - name: provider-pull-secret
