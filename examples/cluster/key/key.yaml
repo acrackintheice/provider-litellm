@@ -1,0 +1,13 @@
+apiVersion: key.litellm.crossplane.io/v1alpha1
+kind: Key
+metadata:
+  name: example-key
+spec:
+  forProvider:
+    keyAlias: crossplane-example-key
+    models:
+      - gpt-3.5-turbo
+      - gpt-4
+    maxBudget: 100
+  providerConfigRef:
+    name: default
