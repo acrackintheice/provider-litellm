@@ -9,7 +9,7 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
-	resource "github.com/acrackintheice/provider-litellm/internal/controller/namespaced/null/resource"
+	key "github.com/acrackintheice/provider-litellm/internal/controller/namespaced/key/key"
 	providerconfig "github.com/acrackintheice/provider-litellm/internal/controller/namespaced/providerconfig"
 )
 
@@ -17,7 +17,7 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.Setup,
+		key.Setup,
 		providerconfig.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
@@ -31,7 +31,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 // the supplied manager gated.
 func SetupGated(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.SetupGated,
+		key.SetupGated,
 		providerconfig.SetupGated,
 	} {
 		if err := setup(mgr, o); err != nil {

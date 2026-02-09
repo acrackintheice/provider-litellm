@@ -10,7 +10,7 @@ package cluster
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/acrackintheice/provider-litellm/apis/cluster/null/v1alpha1"
+	v1alpha1 "github.com/acrackintheice/provider-litellm/apis/cluster/key/v1alpha1"
 	v1alpha1cluster "github.com/acrackintheice/provider-litellm/apis/cluster/v1alpha1"
 	v1beta1 "github.com/acrackintheice/provider-litellm/apis/cluster/v1beta1"
 )
