@@ -15,7 +15,8 @@
 //go:generate rm -rf ../examples-generated
 
 // Generate documentation from Terraform docs.
-//go:generate go run github.com/crossplane/upjet/v2/cmd/scraper -n ${TERRAFORM_PROVIDER_SOURCE} -r ../.work/${TERRAFORM_PROVIDER_SOURCE}/${TERRAFORM_DOCS_PATH} -o ../config/provider-metadata.yaml
+// Scraper skipped: ncecere/litellm docs don't match the scraper's expected prelude (description + page_title).
+// Provider metadata is maintained manually in config/provider-metadata.yaml.
 
 // Run Upjet generator
 //go:generate go run ../cmd/generator/main.go ..
