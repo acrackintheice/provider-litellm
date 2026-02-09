@@ -6,8 +6,8 @@ import (
 
 	ujconfig "github.com/crossplane/upjet/v2/pkg/config"
 
-	keyCluster "github.com/crossplane/upjet-provider-template/config/cluster/key"
-	keyNamespaced "github.com/crossplane/upjet-provider-template/config/namespaced/key"
+	keyCluster "github.com/acrackintheice/provider-litellm/config/cluster/key"
+	keyNamespaced "github.com/acrackintheice/provider-litellm/config/namespaced/key"
 )
 
 const (
