@@ -1,8 +1,7 @@
 apiVersion: litellm.m.crossplane.io/v1beta1
-kind: ProviderConfig
+kind: ClusterProviderConfig
 metadata:
   name: litellm-sit
-  namespace: crossplane-system
 spec:
   credentials:
     source: Secret

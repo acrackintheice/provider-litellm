@@ -1,0 +1,13 @@
+apiVersion: key.litellm.m.crossplane.io/v1alpha1
+kind: Key
+metadata:
+  name: crossplane-demo
+  namespace: crossplane-system
+spec:
+  forProvider:
+    keyAlias: crossplane-demo
+    models:
+      - gemini/gemini-2.5-flash
+  providerConfigRef:
+    kind: ClusterProviderConfig
+    name: litellm-sit

@@ -3,13 +3,13 @@ package clients
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/crossplane/crossplane-runtime/v2/pkg/resource"
+	"github.com/crossplane/upjet/v2/pkg/terraform"
 	"github.com/pkg/errors"
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
-
-	"github.com/crossplane/upjet/v2/pkg/terraform"
 
 	clusterv1beta1 "github.com/acrackintheice/provider-litellm/apis/cluster/v1beta1"
 	namespacedv1beta1 "github.com/acrackintheice/provider-litellm/apis/namespaced/v1beta1"
@@ -25,6 +25,8 @@ const (
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal litellm credentials as JSON"
+	errMissingAPIBase       = "api_base is required"
+	errMissingAPIKey        = "api_key is required"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -53,11 +55,15 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
-		// Set credentials in Terraform provider configuration.
-		ps.Configuration = map[string]any{
-			apiBase: creds[apiBase],
-			apiKey:  creds[apiKey],
+		if creds[apiBase] == "" || creds[apiKey] == "" {
+			credsJSON, _ := json.Marshal(creds)
+			return ps, errors.New(fmt.Sprintf("api_base and api_key are required (creds: %s)", string(credsJSON)))
 		}
+
+		// Set credentials in Terraform provider configuration.
+		ps.Configuration = map[string]any{}
+		ps.Configuration[apiBase] = creds[apiBase]
+		ps.Configuration[apiKey] = creds[apiKey]
 
 		return ps, nil
 	}

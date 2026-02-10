@@ -3,7 +3,7 @@ kind: Provider
 metadata:
   name: provider-litellm
 spec:
-  package: xpkg.upbound.io/questplane/provider-litellm:v0.0.5
+  package: xpkg.upbound.io/questplane/provider-litellm:v0.0.7
   packagePullSecrets:
     - name: provider-pull-secret
   runtimeConfigRef:
