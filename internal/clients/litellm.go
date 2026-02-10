@@ -16,12 +16,17 @@ import (
 )
 
 const (
+	apiBase = "api_base"
+	apiKey  = "api_key"
+
 	// error messages
 	errNoProviderConfig     = "no providerConfigRef provided"
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal litellm credentials as JSON"
+	errMissingAPIBase       = "credentials must provide api_base"
+	errMissingAPIKey        = "credentials must provide api_key"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -51,10 +56,19 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 
 		// Set credentials in Terraform provider configuration.
-		/*ps.Configuration = map[string]any{
-			"username": creds["username"],
-			"password": creds["password"],
-		}*/
+		ps.Configuration = make(map[string]any)
+		if apiBaseValue, ok := creds[apiBase]; ok && apiBaseValue != "" {
+			ps.Configuration[apiBase] = apiBaseValue
+		} else {
+			return ps, errors.New(errMissingAPIBase)
+		}
+
+		if apiKeyValue, ok := creds[apiKey]; ok && apiKeyValue != "" {
+			ps.Configuration[apiKey] = apiKeyValue
+		} else {
+			return ps, errors.New(errMissingAPIKey)
+		}
+
 		return ps, nil
 	}
 }
