@@ -63,148 +63,87 @@ spec:
                   aliases:
                     additionalProperties:
                       type: string
-                    description: Model alias mappings.
                     type: object
                     x-kubernetes-map-type: granular
                   allowedCacheControls:
-                    description: Allowed cache control values.
                     items:
                       type: string
                     type: array
                   allowedPassthroughRoutes:
-                    description: List of allowed passthrough routes.
                     items:
                       type: string
                     type: array
                   allowedRoutes:
-                    description: List of allowed API routes.
                     items:
                       type: string
                     type: array
                   blocked:
-                    description: Whether the key is blocked.
                     type: boolean
                   budgetDuration:
-                    description: Budget reset duration (e.g., '30d', '1h').
-                    type: string
-                  budgetId:
-                    description: Budget ID to associate with this key.
                     type: string
                   config:
                     additionalProperties:
                       type: string
-                    description: Key-specific configuration.
                     type: object
                     x-kubernetes-map-type: granular
                   duration:
-                    description: Key validity duration.
                     type: string
-                  enforcedParams:
-                    description: List of enforced params for this key (params that
-                      must be present in requests).
-                    items:
-                      type: string
-                    type: array
                   guardrails:
-                    description: Guardrails for the key.
                     items:
                       type: string
                     type: array
                   keyAlias:
-                    description: User-friendly alias for the key.
                     type: string
-                  keySecretRef:
-                    description: The API key value. If not specified, a key will be
-                      generated.
-                    properties:
-                      key:
-                        type: string
-                      name:
-                        description: Name of the secret.
-                        type: string
-                    required:
-                    - key
-                    - name
-                    type: object
                   maxBudget:
-                    description: Maximum budget for this key.
                     type: number
                   maxParallelRequests:
-                    description: Maximum parallel requests allowed.
                     type: number
                   metadata:
                     additionalProperties:
                       type: string
-                    description: Metadata for the key.
                     type: object
                     x-kubernetes-map-type: granular
                   modelMaxBudget:
                     additionalProperties:
                       type: number
-                    description: Per-model budget limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelRpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model RPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelTpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model TPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   models:
-                    description: List of models this key can access.
                     items:
                       type: string
                     type: array
-                  organizationId:
-                    description: Organization ID associated with this key.
-                    type: string
                   permissions:
                     additionalProperties:
                       type: string
-                    description: Key permissions.
                     type: object
                     x-kubernetes-map-type: granular
-                  prompts:
-                    description: List of prompt IDs this key can access.
-                    items:
-                      type: string
-                    type: array
                   rpmLimit:
-                    description: Requests per minute limit.
                     type: number
-                  rpmLimitType:
-                    description: 'Type of RPM limit: ''key'' (default) or ''team''.
-                      If ''team'', RPM is shared across all keys for the team.'
-                    type: string
                   serviceAccountId:
-                    description: Service account ID for team-owned keys.
+                    description: Create a team-owned service account key using this
+                      identifier
                     type: string
                   softBudget:
-                    description: Soft budget limit for warnings.
                     type: number
                   tags:
-                    description: Tags for the key.
                     items:
                       type: string
                     type: array
                   teamId:
-                    description: Team ID associated with this key.
                     type: string
                   tpmLimit:
-                    description: Tokens per minute limit.
                     type: number
-                  tpmLimitType:
-                    description: 'Type of TPM limit: ''key'' (default) or ''team''.
-                      If ''team'', TPM is shared across all keys for the team.'
-                    type: string
                   userId:
-                    description: User ID associated with this key.
                     type: string
                 type: object
               initProvider:
@@ -223,148 +162,87 @@ spec:
                   aliases:
                     additionalProperties:
                       type: string
-                    description: Model alias mappings.
                     type: object
                     x-kubernetes-map-type: granular
                   allowedCacheControls:
-                    description: Allowed cache control values.
                     items:
                       type: string
                     type: array
                   allowedPassthroughRoutes:
-                    description: List of allowed passthrough routes.
                     items:
                       type: string
                     type: array
                   allowedRoutes:
-                    description: List of allowed API routes.
                     items:
                       type: string
                     type: array
                   blocked:
-                    description: Whether the key is blocked.
                     type: boolean
                   budgetDuration:
-                    description: Budget reset duration (e.g., '30d', '1h').
-                    type: string
-                  budgetId:
-                    description: Budget ID to associate with this key.
                     type: string
                   config:
                     additionalProperties:
                       type: string
-                    description: Key-specific configuration.
                     type: object
                     x-kubernetes-map-type: granular
                   duration:
-                    description: Key validity duration.
                     type: string
-                  enforcedParams:
-                    description: List of enforced params for this key (params that
-                      must be present in requests).
-                    items:
-                      type: string
-                    type: array
                   guardrails:
-                    description: Guardrails for the key.
                     items:
                       type: string
                     type: array
                   keyAlias:
-                    description: User-friendly alias for the key.
                     type: string
-                  keySecretRef:
-                    description: The API key value. If not specified, a key will be
-                      generated.
-                    properties:
-                      key:
-                        type: string
-                      name:
-                        description: Name of the secret.
-                        type: string
-                    required:
-                    - key
-                    - name
-                    type: object
                   maxBudget:
-                    description: Maximum budget for this key.
                     type: number
                   maxParallelRequests:
-                    description: Maximum parallel requests allowed.
                     type: number
                   metadata:
                     additionalProperties:
                       type: string
-                    description: Metadata for the key.
                     type: object
                     x-kubernetes-map-type: granular
                   modelMaxBudget:
                     additionalProperties:
                       type: number
-                    description: Per-model budget limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelRpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model RPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelTpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model TPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   models:
-                    description: List of models this key can access.
                     items:
                       type: string
                     type: array
-                  organizationId:
-                    description: Organization ID associated with this key.
-                    type: string
                   permissions:
                     additionalProperties:
                       type: string
-                    description: Key permissions.
                     type: object
                     x-kubernetes-map-type: granular
-                  prompts:
-                    description: List of prompt IDs this key can access.
-                    items:
-                      type: string
-                    type: array
                   rpmLimit:
-                    description: Requests per minute limit.
                     type: number
-                  rpmLimitType:
-                    description: 'Type of RPM limit: ''key'' (default) or ''team''.
-                      If ''team'', RPM is shared across all keys for the team.'
-                    type: string
                   serviceAccountId:
-                    description: Service account ID for team-owned keys.
+                    description: Create a team-owned service account key using this
+                      identifier
                     type: string
                   softBudget:
-                    description: Soft budget limit for warnings.
                     type: number
                   tags:
-                    description: Tags for the key.
                     items:
                       type: string
                     type: array
                   teamId:
-                    description: Team ID associated with this key.
                     type: string
                   tpmLimit:
-                    description: Tokens per minute limit.
                     type: number
-                  tpmLimitType:
-                    description: 'Type of TPM limit: ''key'' (default) or ''team''.
-                      If ''team'', TPM is shared across all keys for the team.'
-                    type: string
                   userId:
-                    description: User ID associated with this key.
                     type: string
                 type: object
               managementPolicies:
@@ -433,140 +311,91 @@ spec:
                   aliases:
                     additionalProperties:
                       type: string
-                    description: Model alias mappings.
                     type: object
                     x-kubernetes-map-type: granular
                   allowedCacheControls:
-                    description: Allowed cache control values.
                     items:
                       type: string
                     type: array
                   allowedPassthroughRoutes:
-                    description: List of allowed passthrough routes.
                     items:
                       type: string
                     type: array
                   allowedRoutes:
-                    description: List of allowed API routes.
                     items:
                       type: string
                     type: array
                   blocked:
-                    description: Whether the key is blocked.
                     type: boolean
                   budgetDuration:
-                    description: Budget reset duration (e.g., '30d', '1h').
-                    type: string
-                  budgetId:
-                    description: Budget ID to associate with this key.
                     type: string
                   config:
                     additionalProperties:
                       type: string
-                    description: Key-specific configuration.
                     type: object
                     x-kubernetes-map-type: granular
                   duration:
-                    description: Key validity duration.
                     type: string
-                  enforcedParams:
-                    description: List of enforced params for this key (params that
-                      must be present in requests).
-                    items:
-                      type: string
-                    type: array
                   guardrails:
-                    description: Guardrails for the key.
                     items:
                       type: string
                     type: array
                   id:
                     type: string
                   keyAlias:
-                    description: User-friendly alias for the key.
                     type: string
                   maxBudget:
-                    description: Maximum budget for this key.
                     type: number
                   maxParallelRequests:
-                    description: Maximum parallel requests allowed.
                     type: number
                   metadata:
                     additionalProperties:
                       type: string
-                    description: Metadata for the key.
                     type: object
                     x-kubernetes-map-type: granular
                   modelMaxBudget:
                     additionalProperties:
                       type: number
-                    description: Per-model budget limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelRpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model RPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   modelTpmLimit:
                     additionalProperties:
                       type: number
-                    description: Per-model TPM limits.
                     type: object
                     x-kubernetes-map-type: granular
                   models:
-                    description: List of models this key can access.
                     items:
                       type: string
                     type: array
-                  organizationId:
-                    description: Organization ID associated with this key.
-                    type: string
                   permissions:
                     additionalProperties:
                       type: string
-                    description: Key permissions.
                     type: object
                     x-kubernetes-map-type: granular
-                  prompts:
-                    description: List of prompt IDs this key can access.
-                    items:
-                      type: string
-                    type: array
                   rpmLimit:
-                    description: Requests per minute limit.
                     type: number
-                  rpmLimitType:
-                    description: 'Type of RPM limit: ''key'' (default) or ''team''.
-                      If ''team'', RPM is shared across all keys for the team.'
-                    type: string
                   serviceAccountId:
-                    description: Service account ID for team-owned keys.
+                    description: Create a team-owned service account key using this
+                      identifier
                     type: string
                   softBudget:
-                    description: Soft budget limit for warnings.
                     type: number
                   spend:
-                    description: Amount spent by this key.
                     type: number
                   tags:
-                    description: Tags for the key.
                     items:
                       type: string
                     type: array
                   teamId:
-                    description: Team ID associated with this key.
                     type: string
                   tpmLimit:
-                    description: Tokens per minute limit.
                     type: number
-                  tpmLimitType:
-                    description: 'Type of TPM limit: ''key'' (default) or ''team''.
-                      If ''team'', TPM is shared across all keys for the team.'
-                    type: string
                   userId:
-                    description: User ID associated with this key.
                     type: string
                 type: object
               conditions:

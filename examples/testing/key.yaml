@@ -11,3 +11,19 @@ spec:
   providerConfigRef:
     kind: ClusterProviderConfig
     name: litellm-sit
+---
+apiVersion: key.litellm.m.crossplane.io/v1alpha1
+kind: Key
+metadata:
+  name: crossplane-demo2
+  namespace: crossplane-system
+spec:
+  forProvider:
+    keyAlias: crossplane-demo2
+    models:
+      - gemini/gemini-2.5-flash
+  writeConnectionSecretToRef:
+    name: crossplane-demo2-secret
+  providerConfigRef:
+    kind: ClusterProviderConfig
+    name: litellm-sit

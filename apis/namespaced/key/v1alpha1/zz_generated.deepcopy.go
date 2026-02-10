@@ -9,7 +9,6 @@
 package v1alpha1
 
 import (
-	"github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -102,11 +101,6 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.BudgetID != nil {
-		in, out := &in.BudgetID, &out.BudgetID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Config != nil {
 		in, out := &in.Config, &out.Config
 		*out = make(map[string]*string, len(*in))
@@ -128,17 +122,6 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.EnforcedParams != nil {
-		in, out := &in.EnforcedParams, &out.EnforcedParams
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
 	if in.Guardrails != nil {
 		in, out := &in.Guardrails, &out.Guardrails
 		*out = make([]*string, len(*in))
@@ -153,11 +136,6 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 	if in.KeyAlias != nil {
 		in, out := &in.KeyAlias, &out.KeyAlias
 		*out = new(string)
-		**out = **in
-	}
-	if in.KeySecretRef != nil {
-		in, out := &in.KeySecretRef, &out.KeySecretRef
-		*out = new(v1.LocalSecretKeySelector)
 		**out = **in
 	}
 	if in.MaxBudget != nil {
@@ -245,11 +223,6 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 			}
 		}
 	}
-	if in.OrganizationID != nil {
-		in, out := &in.OrganizationID, &out.OrganizationID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Permissions != nil {
 		in, out := &in.Permissions, &out.Permissions
 		*out = make(map[string]*string, len(*in))
@@ -266,25 +239,9 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 			(*out)[key] = outVal
 		}
 	}
-	if in.Prompts != nil {
-		in, out := &in.Prompts, &out.Prompts
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
 	if in.RpmLimit != nil {
 		in, out := &in.RpmLimit, &out.RpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.RpmLimitType != nil {
-		in, out := &in.RpmLimitType, &out.RpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.ServiceAccountID != nil {
@@ -316,11 +273,6 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 	if in.TpmLimit != nil {
 		in, out := &in.TpmLimit, &out.TpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.TpmLimitType != nil {
-		in, out := &in.TpmLimitType, &out.TpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.UserID != nil {
@@ -434,11 +386,6 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.BudgetID != nil {
-		in, out := &in.BudgetID, &out.BudgetID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Config != nil {
 		in, out := &in.Config, &out.Config
 		*out = make(map[string]*string, len(*in))
@@ -459,17 +406,6 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 		in, out := &in.Duration, &out.Duration
 		*out = new(string)
 		**out = **in
-	}
-	if in.EnforcedParams != nil {
-		in, out := &in.EnforcedParams, &out.EnforcedParams
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
 	}
 	if in.Guardrails != nil {
 		in, out := &in.Guardrails, &out.Guardrails
@@ -577,11 +513,6 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 			}
 		}
 	}
-	if in.OrganizationID != nil {
-		in, out := &in.OrganizationID, &out.OrganizationID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Permissions != nil {
 		in, out := &in.Permissions, &out.Permissions
 		*out = make(map[string]*string, len(*in))
@@ -598,25 +529,9 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 			(*out)[key] = outVal
 		}
 	}
-	if in.Prompts != nil {
-		in, out := &in.Prompts, &out.Prompts
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
 	if in.RpmLimit != nil {
 		in, out := &in.RpmLimit, &out.RpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.RpmLimitType != nil {
-		in, out := &in.RpmLimitType, &out.RpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.ServiceAccountID != nil {
@@ -653,11 +568,6 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 	if in.TpmLimit != nil {
 		in, out := &in.TpmLimit, &out.TpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.TpmLimitType != nil {
-		in, out := &in.TpmLimitType, &out.TpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.UserID != nil {
@@ -739,11 +649,6 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.BudgetID != nil {
-		in, out := &in.BudgetID, &out.BudgetID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Config != nil {
 		in, out := &in.Config, &out.Config
 		*out = make(map[string]*string, len(*in))
@@ -765,17 +670,6 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.EnforcedParams != nil {
-		in, out := &in.EnforcedParams, &out.EnforcedParams
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
 	if in.Guardrails != nil {
 		in, out := &in.Guardrails, &out.Guardrails
 		*out = make([]*string, len(*in))
@@ -790,11 +684,6 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 	if in.KeyAlias != nil {
 		in, out := &in.KeyAlias, &out.KeyAlias
 		*out = new(string)
-		**out = **in
-	}
-	if in.KeySecretRef != nil {
-		in, out := &in.KeySecretRef, &out.KeySecretRef
-		*out = new(v1.LocalSecretKeySelector)
 		**out = **in
 	}
 	if in.MaxBudget != nil {
@@ -882,11 +771,6 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 			}
 		}
 	}
-	if in.OrganizationID != nil {
-		in, out := &in.OrganizationID, &out.OrganizationID
-		*out = new(string)
-		**out = **in
-	}
 	if in.Permissions != nil {
 		in, out := &in.Permissions, &out.Permissions
 		*out = make(map[string]*string, len(*in))
@@ -903,25 +787,9 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 			(*out)[key] = outVal
 		}
 	}
-	if in.Prompts != nil {
-		in, out := &in.Prompts, &out.Prompts
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
 	if in.RpmLimit != nil {
 		in, out := &in.RpmLimit, &out.RpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.RpmLimitType != nil {
-		in, out := &in.RpmLimitType, &out.RpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.ServiceAccountID != nil {
@@ -953,11 +821,6 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 	if in.TpmLimit != nil {
 		in, out := &in.TpmLimit, &out.TpmLimit
 		*out = new(float64)
-		**out = **in
-	}
-	if in.TpmLimitType != nil {
-		in, out := &in.TpmLimitType, &out.TpmLimitType
-		*out = new(string)
 		**out = **in
 	}
 	if in.UserID != nil {

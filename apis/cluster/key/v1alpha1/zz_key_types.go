@@ -15,352 +15,214 @@ import (
 
 type KeyInitParameters struct {
 
-	// Model alias mappings.
 	// +mapType=granular
 	Aliases map[string]*string `json:"aliases,omitempty" tf:"aliases,omitempty"`
 
-	// Allowed cache control values.
 	AllowedCacheControls []*string `json:"allowedCacheControls,omitempty" tf:"allowed_cache_controls,omitempty"`
 
-	// List of allowed passthrough routes.
 	AllowedPassthroughRoutes []*string `json:"allowedPassthroughRoutes,omitempty" tf:"allowed_passthrough_routes,omitempty"`
 
-	// List of allowed API routes.
 	AllowedRoutes []*string `json:"allowedRoutes,omitempty" tf:"allowed_routes,omitempty"`
 
-	// Whether the key is blocked.
 	Blocked *bool `json:"blocked,omitempty" tf:"blocked,omitempty"`
 
-	// Budget reset duration (e.g., '30d', '1h').
 	BudgetDuration *string `json:"budgetDuration,omitempty" tf:"budget_duration,omitempty"`
 
-	// Budget ID to associate with this key.
-	BudgetID *string `json:"budgetId,omitempty" tf:"budget_id,omitempty"`
-
-	// Key-specific configuration.
 	// +mapType=granular
 	Config map[string]*string `json:"config,omitempty" tf:"config,omitempty"`
 
-	// Key validity duration.
 	Duration *string `json:"duration,omitempty" tf:"duration,omitempty"`
 
-	// List of enforced params for this key (params that must be present in requests).
-	EnforcedParams []*string `json:"enforcedParams,omitempty" tf:"enforced_params,omitempty"`
-
-	// Guardrails for the key.
 	Guardrails []*string `json:"guardrails,omitempty" tf:"guardrails,omitempty"`
 
-	// User-friendly alias for the key.
 	KeyAlias *string `json:"keyAlias,omitempty" tf:"key_alias,omitempty"`
 
-	// The API key value. If not specified, a key will be generated.
-	KeySecretRef *v1.SecretKeySelector `json:"keySecretRef,omitempty" tf:"-"`
-
-	// Maximum budget for this key.
 	MaxBudget *float64 `json:"maxBudget,omitempty" tf:"max_budget,omitempty"`
 
-	// Maximum parallel requests allowed.
 	MaxParallelRequests *float64 `json:"maxParallelRequests,omitempty" tf:"max_parallel_requests,omitempty"`
 
-	// Metadata for the key.
 	// +mapType=granular
 	Metadata map[string]*string `json:"metadata,omitempty" tf:"metadata,omitempty"`
 
-	// Per-model budget limits.
 	// +mapType=granular
 	ModelMaxBudget map[string]*float64 `json:"modelMaxBudget,omitempty" tf:"model_max_budget,omitempty"`
 
-	// Per-model RPM limits.
 	// +mapType=granular
 	ModelRpmLimit map[string]*float64 `json:"modelRpmLimit,omitempty" tf:"model_rpm_limit,omitempty"`
 
-	// Per-model TPM limits.
 	// +mapType=granular
 	ModelTpmLimit map[string]*float64 `json:"modelTpmLimit,omitempty" tf:"model_tpm_limit,omitempty"`
 
-	// List of models this key can access.
 	Models []*string `json:"models,omitempty" tf:"models,omitempty"`
 
-	// Organization ID associated with this key.
-	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
-
-	// Key permissions.
 	// +mapType=granular
 	Permissions map[string]*string `json:"permissions,omitempty" tf:"permissions,omitempty"`
 
-	// List of prompt IDs this key can access.
-	Prompts []*string `json:"prompts,omitempty" tf:"prompts,omitempty"`
-
-	// Requests per minute limit.
 	RpmLimit *float64 `json:"rpmLimit,omitempty" tf:"rpm_limit,omitempty"`
 
-	// Type of RPM limit: 'key' (default) or 'team'. If 'team', RPM is shared across all keys for the team.
-	RpmLimitType *string `json:"rpmLimitType,omitempty" tf:"rpm_limit_type,omitempty"`
-
-	// Service account ID for team-owned keys.
+	// Create a team-owned service account key using this identifier
 	ServiceAccountID *string `json:"serviceAccountId,omitempty" tf:"service_account_id,omitempty"`
 
-	// Soft budget limit for warnings.
 	SoftBudget *float64 `json:"softBudget,omitempty" tf:"soft_budget,omitempty"`
 
-	// Tags for the key.
 	Tags []*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Team ID associated with this key.
 	TeamID *string `json:"teamId,omitempty" tf:"team_id,omitempty"`
 
-	// Tokens per minute limit.
 	TpmLimit *float64 `json:"tpmLimit,omitempty" tf:"tpm_limit,omitempty"`
 
-	// Type of TPM limit: 'key' (default) or 'team'. If 'team', TPM is shared across all keys for the team.
-	TpmLimitType *string `json:"tpmLimitType,omitempty" tf:"tpm_limit_type,omitempty"`
-
-	// User ID associated with this key.
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 }
 
 type KeyObservation struct {
 
-	// Model alias mappings.
 	// +mapType=granular
 	Aliases map[string]*string `json:"aliases,omitempty" tf:"aliases,omitempty"`
 
-	// Allowed cache control values.
 	AllowedCacheControls []*string `json:"allowedCacheControls,omitempty" tf:"allowed_cache_controls,omitempty"`
 
-	// List of allowed passthrough routes.
 	AllowedPassthroughRoutes []*string `json:"allowedPassthroughRoutes,omitempty" tf:"allowed_passthrough_routes,omitempty"`
 
-	// List of allowed API routes.
 	AllowedRoutes []*string `json:"allowedRoutes,omitempty" tf:"allowed_routes,omitempty"`
 
-	// Whether the key is blocked.
 	Blocked *bool `json:"blocked,omitempty" tf:"blocked,omitempty"`
 
-	// Budget reset duration (e.g., '30d', '1h').
 	BudgetDuration *string `json:"budgetDuration,omitempty" tf:"budget_duration,omitempty"`
 
-	// Budget ID to associate with this key.
-	BudgetID *string `json:"budgetId,omitempty" tf:"budget_id,omitempty"`
-
-	// Key-specific configuration.
 	// +mapType=granular
 	Config map[string]*string `json:"config,omitempty" tf:"config,omitempty"`
 
-	// Key validity duration.
 	Duration *string `json:"duration,omitempty" tf:"duration,omitempty"`
 
-	// List of enforced params for this key (params that must be present in requests).
-	EnforcedParams []*string `json:"enforcedParams,omitempty" tf:"enforced_params,omitempty"`
-
-	// Guardrails for the key.
 	Guardrails []*string `json:"guardrails,omitempty" tf:"guardrails,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// User-friendly alias for the key.
+	Key *string `json:"key,omitempty" tf:"key,omitempty"`
+
 	KeyAlias *string `json:"keyAlias,omitempty" tf:"key_alias,omitempty"`
 
-	// Maximum budget for this key.
 	MaxBudget *float64 `json:"maxBudget,omitempty" tf:"max_budget,omitempty"`
 
-	// Maximum parallel requests allowed.
 	MaxParallelRequests *float64 `json:"maxParallelRequests,omitempty" tf:"max_parallel_requests,omitempty"`
 
-	// Metadata for the key.
 	// +mapType=granular
 	Metadata map[string]*string `json:"metadata,omitempty" tf:"metadata,omitempty"`
 
-	// Per-model budget limits.
 	// +mapType=granular
 	ModelMaxBudget map[string]*float64 `json:"modelMaxBudget,omitempty" tf:"model_max_budget,omitempty"`
 
-	// Per-model RPM limits.
 	// +mapType=granular
 	ModelRpmLimit map[string]*float64 `json:"modelRpmLimit,omitempty" tf:"model_rpm_limit,omitempty"`
 
-	// Per-model TPM limits.
 	// +mapType=granular
 	ModelTpmLimit map[string]*float64 `json:"modelTpmLimit,omitempty" tf:"model_tpm_limit,omitempty"`
 
-	// List of models this key can access.
 	Models []*string `json:"models,omitempty" tf:"models,omitempty"`
 
-	// Organization ID associated with this key.
-	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
-
-	// Key permissions.
 	// +mapType=granular
 	Permissions map[string]*string `json:"permissions,omitempty" tf:"permissions,omitempty"`
 
-	// List of prompt IDs this key can access.
-	Prompts []*string `json:"prompts,omitempty" tf:"prompts,omitempty"`
-
-	// Requests per minute limit.
 	RpmLimit *float64 `json:"rpmLimit,omitempty" tf:"rpm_limit,omitempty"`
 
-	// Type of RPM limit: 'key' (default) or 'team'. If 'team', RPM is shared across all keys for the team.
-	RpmLimitType *string `json:"rpmLimitType,omitempty" tf:"rpm_limit_type,omitempty"`
-
-	// Service account ID for team-owned keys.
+	// Create a team-owned service account key using this identifier
 	ServiceAccountID *string `json:"serviceAccountId,omitempty" tf:"service_account_id,omitempty"`
 
-	// Soft budget limit for warnings.
 	SoftBudget *float64 `json:"softBudget,omitempty" tf:"soft_budget,omitempty"`
 
-	// Amount spent by this key.
 	Spend *float64 `json:"spend,omitempty" tf:"spend,omitempty"`
 
-	// Tags for the key.
 	Tags []*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Team ID associated with this key.
 	TeamID *string `json:"teamId,omitempty" tf:"team_id,omitempty"`
 
-	// Tokens per minute limit.
 	TpmLimit *float64 `json:"tpmLimit,omitempty" tf:"tpm_limit,omitempty"`
 
-	// Type of TPM limit: 'key' (default) or 'team'. If 'team', TPM is shared across all keys for the team.
-	TpmLimitType *string `json:"tpmLimitType,omitempty" tf:"tpm_limit_type,omitempty"`
-
-	// User ID associated with this key.
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 }
 
 type KeyParameters struct {
 
-	// Model alias mappings.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Aliases map[string]*string `json:"aliases,omitempty" tf:"aliases,omitempty"`
 
-	// Allowed cache control values.
 	// +kubebuilder:validation:Optional
 	AllowedCacheControls []*string `json:"allowedCacheControls,omitempty" tf:"allowed_cache_controls,omitempty"`
 
-	// List of allowed passthrough routes.
 	// +kubebuilder:validation:Optional
 	AllowedPassthroughRoutes []*string `json:"allowedPassthroughRoutes,omitempty" tf:"allowed_passthrough_routes,omitempty"`
 
-	// List of allowed API routes.
 	// +kubebuilder:validation:Optional
 	AllowedRoutes []*string `json:"allowedRoutes,omitempty" tf:"allowed_routes,omitempty"`
 
-	// Whether the key is blocked.
 	// +kubebuilder:validation:Optional
 	Blocked *bool `json:"blocked,omitempty" tf:"blocked,omitempty"`
 
-	// Budget reset duration (e.g., '30d', '1h').
 	// +kubebuilder:validation:Optional
 	BudgetDuration *string `json:"budgetDuration,omitempty" tf:"budget_duration,omitempty"`
 
-	// Budget ID to associate with this key.
-	// +kubebuilder:validation:Optional
-	BudgetID *string `json:"budgetId,omitempty" tf:"budget_id,omitempty"`
-
-	// Key-specific configuration.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Config map[string]*string `json:"config,omitempty" tf:"config,omitempty"`
 
-	// Key validity duration.
 	// +kubebuilder:validation:Optional
 	Duration *string `json:"duration,omitempty" tf:"duration,omitempty"`
 
-	// List of enforced params for this key (params that must be present in requests).
-	// +kubebuilder:validation:Optional
-	EnforcedParams []*string `json:"enforcedParams,omitempty" tf:"enforced_params,omitempty"`
-
-	// Guardrails for the key.
 	// +kubebuilder:validation:Optional
 	Guardrails []*string `json:"guardrails,omitempty" tf:"guardrails,omitempty"`
 
-	// User-friendly alias for the key.
 	// +kubebuilder:validation:Optional
 	KeyAlias *string `json:"keyAlias,omitempty" tf:"key_alias,omitempty"`
 
-	// The API key value. If not specified, a key will be generated.
-	// +kubebuilder:validation:Optional
-	KeySecretRef *v1.SecretKeySelector `json:"keySecretRef,omitempty" tf:"-"`
-
-	// Maximum budget for this key.
 	// +kubebuilder:validation:Optional
 	MaxBudget *float64 `json:"maxBudget,omitempty" tf:"max_budget,omitempty"`
 
-	// Maximum parallel requests allowed.
 	// +kubebuilder:validation:Optional
 	MaxParallelRequests *float64 `json:"maxParallelRequests,omitempty" tf:"max_parallel_requests,omitempty"`
 
-	// Metadata for the key.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Metadata map[string]*string `json:"metadata,omitempty" tf:"metadata,omitempty"`
 
-	// Per-model budget limits.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	ModelMaxBudget map[string]*float64 `json:"modelMaxBudget,omitempty" tf:"model_max_budget,omitempty"`
 
-	// Per-model RPM limits.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	ModelRpmLimit map[string]*float64 `json:"modelRpmLimit,omitempty" tf:"model_rpm_limit,omitempty"`
 
-	// Per-model TPM limits.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	ModelTpmLimit map[string]*float64 `json:"modelTpmLimit,omitempty" tf:"model_tpm_limit,omitempty"`
 
-	// List of models this key can access.
 	// +kubebuilder:validation:Optional
 	Models []*string `json:"models,omitempty" tf:"models,omitempty"`
 
-	// Organization ID associated with this key.
-	// +kubebuilder:validation:Optional
-	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
-
-	// Key permissions.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Permissions map[string]*string `json:"permissions,omitempty" tf:"permissions,omitempty"`
 
-	// List of prompt IDs this key can access.
-	// +kubebuilder:validation:Optional
-	Prompts []*string `json:"prompts,omitempty" tf:"prompts,omitempty"`
-
-	// Requests per minute limit.
 	// +kubebuilder:validation:Optional
 	RpmLimit *float64 `json:"rpmLimit,omitempty" tf:"rpm_limit,omitempty"`
 
-	// Type of RPM limit: 'key' (default) or 'team'. If 'team', RPM is shared across all keys for the team.
-	// +kubebuilder:validation:Optional
-	RpmLimitType *string `json:"rpmLimitType,omitempty" tf:"rpm_limit_type,omitempty"`
-
-	// Service account ID for team-owned keys.
+	// Create a team-owned service account key using this identifier
 	// +kubebuilder:validation:Optional
 	ServiceAccountID *string `json:"serviceAccountId,omitempty" tf:"service_account_id,omitempty"`
 
-	// Soft budget limit for warnings.
 	// +kubebuilder:validation:Optional
 	SoftBudget *float64 `json:"softBudget,omitempty" tf:"soft_budget,omitempty"`
 
-	// Tags for the key.
 	// +kubebuilder:validation:Optional
 	Tags []*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Team ID associated with this key.
 	// +kubebuilder:validation:Optional
 	TeamID *string `json:"teamId,omitempty" tf:"team_id,omitempty"`
 
-	// Tokens per minute limit.
 	// +kubebuilder:validation:Optional
 	TpmLimit *float64 `json:"tpmLimit,omitempty" tf:"tpm_limit,omitempty"`
 
-	// Type of TPM limit: 'key' (default) or 'team'. If 'team', TPM is shared across all keys for the team.
-	// +kubebuilder:validation:Optional
-	TpmLimitType *string `json:"tpmLimitType,omitempty" tf:"tpm_limit_type,omitempty"`
-
-	// User ID associated with this key.
 	// +kubebuilder:validation:Optional
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 }

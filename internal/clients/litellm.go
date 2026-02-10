@@ -3,7 +3,6 @@ package clients
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 
 	"github.com/crossplane/crossplane-runtime/v2/pkg/resource"
 	"github.com/crossplane/upjet/v2/pkg/terraform"
@@ -25,8 +24,6 @@ const (
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal litellm credentials as JSON"
-	errMissingAPIBase       = "api_base is required"
-	errMissingAPIKey        = "api_key is required"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -56,8 +53,7 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 
 		if creds[apiBase] == "" || creds[apiKey] == "" {
-			credsJSON, _ := json.Marshal(creds)
-			return ps, errors.New(fmt.Sprintf("api_base and api_key are required (creds: %s)", string(credsJSON)))
+			return ps, errors.New("api_base and api_key are required")
 		}
 
 		// Set credentials in Terraform provider configuration.
