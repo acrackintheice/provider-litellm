@@ -8,7 +8,6 @@ spec:
     keyAlias: crossplane-demo
     models:
       - gemini/gemini-2.5-flash
-    maxBudget: 1000
   providerConfigRef:
     kind: ClusterProviderConfig
     name: litellm-sit

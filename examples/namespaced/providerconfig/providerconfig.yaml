@@ -10,3 +10,14 @@ spec:
       name: litellm-sit-creds
       namespace: crossplane-system
       key: credentials
+---
+apiVersion: pkg.crossplane.io/v1beta1
+kind: DeploymentRuntimeConfig
+metadata:
+  name: provider-kubernetes
+spec:
+  serviceAccountTemplate:
+    metadata:
+      name: provider-kubernetes
+      annotations:
+        iam.gke.io/gcp-service-account: crossplane@qt-platform-tooling-sbx-p5.iam.gserviceaccount.com
